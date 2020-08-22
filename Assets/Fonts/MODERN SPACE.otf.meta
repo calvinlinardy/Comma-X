@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: ff4efe1e0f9d8b841a90bc6f7c144ba5
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: MODERNSPACE
+  fontNames:
+  - MODERNSPACE
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: c393df0aed7ac0b4588dfed07ba27729, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
