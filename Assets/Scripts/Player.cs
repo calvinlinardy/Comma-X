@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     [SerializeField] AudioClip deathSFX = null;
     [SerializeField] [Range(0, 1)] float deathSFXVolume = 0.7f;
     [SerializeField] Image[] hearts = null;
+    [SerializeField] GameObject hitVFX = null;
+    [SerializeField] AudioClip hitSFX = null;
 
     [Header("Projectile")]
     [SerializeField] GameObject laserPrefab = null;
@@ -69,6 +71,9 @@ public class Player : MonoBehaviour
         {
             return;
         }
+        GameObject explosion = Instantiate(hitVFX, transform.position, transform.rotation);
+        Destroy(explosion, 0.1f);
+        AudioSource.PlayClipAtPoint(hitSFX, Camera.main.transform.position, deathSFXVolume);
         ProcessHit(damageDealer);
     }
 

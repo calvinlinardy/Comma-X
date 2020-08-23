@@ -113,7 +113,7 @@ MonoBehaviour:
   health: 10000
   scoreValue: 6500
   minTimeBetweenShots: 0.2
-  maxTimeBetweenShots: 1.5
+  maxTimeBetweenShots: 3
   deathVFX: {fileID: 6488125967927212121, guid: 839a5c83ebf4d5944ab9d334250e6117,
     type: 3}
   durationOfExplosion: 1
@@ -121,7 +121,7 @@ MonoBehaviour:
   deathSFXVolume: 0.5
   projectile: {fileID: 5451174568990493901, guid: 4b826674e22dfb34b89a4aca05aeef50,
     type: 3}
-  projectileSpeed: 5
+  projectileSpeed: 4
   shootSFX: {fileID: 8300000, guid: 5ca30c26c0f42284a86e5eba60c08275, type: 3}
   shootSFXVolume: 0.4
 --- !u!114 &5199795817652544631

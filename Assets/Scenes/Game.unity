@@ -1098,13 +1098,30 @@ PrefabInstance:
     - target: {fileID: 597640174232389469, guid: d6de114b8c560f44ea8677fd297fe009,
         type: 3}
       propertyPath: waveConfigs.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 597640174232389469, guid: d6de114b8c560f44ea8677fd297fe009,
         type: 3}
       propertyPath: waveConfigs.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 3438ffbfcf2bad540a9dbaff26c2781c,
+      objectReference: {fileID: 11400000, guid: adbb71e4abd2c0d4f972b084ce4c4b6f,
+        type: 2}
+    - target: {fileID: 597640174232389469, guid: d6de114b8c560f44ea8677fd297fe009,
+        type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 597640174232389469, guid: d6de114b8c560f44ea8677fd297fe009,
+        type: 3}
+      propertyPath: waveConfigs.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: ad5b676db60125f4396d36cc8171368c,
+        type: 2}
+    - target: {fileID: 597640174232389469, guid: d6de114b8c560f44ea8677fd297fe009,
+        type: 3}
+      propertyPath: waveConfigs.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9ecb5844aa8a7a544984e622a41446ff,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6de114b8c560f44ea8677fd297fe009, type: 3}
@@ -1540,6 +1557,22 @@ PrefabInstance:
       propertyPath: hearts.Array.data[4]
       value: 
       objectReference: {fileID: 593089025}
+    - target: {fileID: 5634116467063444747, guid: 4bbfb8d52cbefb242b4f92eef84a40fb,
+        type: 3}
+      propertyPath: health
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634116467063444747, guid: 4bbfb8d52cbefb242b4f92eef84a40fb,
+        type: 3}
+      propertyPath: hitVFX
+      value: 
+      objectReference: {fileID: 5522765895585291727, guid: 8ae0924accefc6045a4505531edab8ff,
+        type: 3}
+    - target: {fileID: 5634116467063444747, guid: 4bbfb8d52cbefb242b4f92eef84a40fb,
+        type: 3}
+      propertyPath: hitSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 4ac5b80a474724e4697d4045a7dc5391, type: 3}
     - target: {fileID: 5634116467063444750, guid: 4bbfb8d52cbefb242b4f92eef84a40fb,
         type: 3}
       propertyPath: m_Name
