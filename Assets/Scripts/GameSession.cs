@@ -6,6 +6,28 @@ using UnityEngine;
 public class GameSession : MonoBehaviour
 {
     int score = 0;
+    int healthBonus = 0;
+    int healthBonusScore = 1000;
+
+    private void Update()
+    {
+        if (score != 0 && score % healthBonusScore == 0)
+        {
+            healthBonus = 1;
+            StartCoroutine(HealthBonusMinus());
+        }
+    }
+
+    IEnumerator HealthBonusMinus()
+    {
+        yield return new WaitForSeconds(1);
+        healthBonus -= 1;
+    }
+
+    public int GetHealthBonus()
+    {
+        return healthBonus;
+    }
 
     private void Awake()
     {

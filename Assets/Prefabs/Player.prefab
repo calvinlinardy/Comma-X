@@ -97,8 +97,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 8
   padding: 0.45
-  health: 10000
-  deathSFX: {fileID: 8300000, guid: 16b0c032a2e6d864b9b2393078c2e008, type: 3}
+  health: 5
+  deathVFX: {fileID: 6488125967927212121, guid: 839a5c83ebf4d5944ab9d334250e6117,
+    type: 3}
+  deathSFX: {fileID: 8300000, guid: 2bb91fac8b7f18941853e7e5664258b1, type: 3}
   deathSFXVolume: 0.7
   hearts:
   - {fileID: 0}
@@ -107,7 +109,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   hitVFX: {fileID: 5522765895585291727, guid: 8ae0924accefc6045a4505531edab8ff, type: 3}
-  hitSFX: {fileID: 8300000, guid: 4ac5b80a474724e4697d4045a7dc5391, type: 3}
+  hitSFX: {fileID: 8300000, guid: f489a344de89fcd429b4c85ba9ae8440, type: 3}
   laserPrefab: {fileID: 4210469647485011511, guid: 0d1f8ab7ef5a7904ca07abe988b787f4,
     type: 3}
   projectileSpeed: 20

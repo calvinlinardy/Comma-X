@@ -48,6 +48,13 @@ public class Player : MonoBehaviour
         Move();
         Fire();
         HeartsMinus();
+        HealthUp();
+    }
+
+    private void HealthUp()
+    {
+        var bonus = FindObjectOfType<GameSession>().GetHealthBonus();
+        health += bonus;
     }
 
     private void HeartsMinus()
@@ -90,7 +97,10 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        hearts[0].enabled = false;
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            hearts[i].enabled = false;
+        }
         level.LoadGameOver();
         Destroy(gameObject);
         GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
