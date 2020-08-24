@@ -117,7 +117,7 @@ MonoBehaviour:
   deathVFX: {fileID: 5522765895585291727, guid: 5e652ef3c221b2a47938c9c2aa263703,
     type: 3}
   durationOfExplosion: 1
-  deathSFX: {fileID: 8300000, guid: 4ac5b80a474724e4697d4045a7dc5391, type: 3}
+  deathSFX: {fileID: 8300000, guid: 36394b1b43b012142b45138704f58360, type: 3}
   deathSFXVolume: 0.5
   projectile: {fileID: 5451174568990493901, guid: f9e0d45fa4505c84ba48313690f24ab1,
     type: 3}

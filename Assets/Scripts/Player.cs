@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] float movementSpeed = 10f;
     [SerializeField] float padding = 1f;
     [SerializeField] int health = 5;
+    [SerializeField] GameObject deathVFX = null;
     [SerializeField] AudioClip deathSFX = null;
     [SerializeField] [Range(0, 1)] float deathSFXVolume = 0.7f;
     [SerializeField] Image[] hearts = null;
@@ -92,6 +93,8 @@ public class Player : MonoBehaviour
         hearts[0].enabled = false;
         level.LoadGameOver();
         Destroy(gameObject);
+        GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
+        Destroy(explosion, 0.58f);
         AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, deathSFXVolume);
     }
 
