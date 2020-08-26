@@ -95,7 +95,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2071e1e84bdc2b4a92595d90994ea25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 8
   padding: 0.45
   health: 1
   hearts:
@@ -121,10 +120,13 @@ MonoBehaviour:
   - {fileID: 0}
   deathSFX: {fileID: 8300000, guid: 2bb91fac8b7f18941853e7e5664258b1, type: 3}
   hitSFX: {fileID: 8300000, guid: f489a344de89fcd429b4c85ba9ae8440, type: 3}
+  teleportSFX: {fileID: 8300000, guid: a6ae268300b3b1346a9dfdfb8c6e7d4d, type: 3}
   SFXVolume: 0.7
   deathVFX: {fileID: 6488125967927212121, guid: 839a5c83ebf4d5944ab9d334250e6117,
     type: 3}
   hitVFX: {fileID: 5522765895585291727, guid: 8ae0924accefc6045a4505531edab8ff, type: 3}
+  teleportVFX: {fileID: 1716352759788521039, guid: 482a8bcbf4d794644a871925b186b85c,
+    type: 3}
   laserPrefab: {fileID: 4210469647485011511, guid: 0d1f8ab7ef5a7904ca07abe988b787f4,
     type: 3}
   projectileSpeed: 20

@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     [Header("Sound FX")]
     [SerializeField] GameObject deathVFX = null;
     [SerializeField] GameObject hitVFX = null;
-    [SerializeField] float durationOfExplosion = 1f;
+    [SerializeField] float durationOfExplosion = 0.8f;
     [SerializeField] AudioClip deathSFX = null;
     [SerializeField] AudioClip hitSFX = null;
     [SerializeField] [Range(0, 1)] float SFXVolume = 0.7f;

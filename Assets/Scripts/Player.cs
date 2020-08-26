@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
 {
     //configuration parameters
     [Header("Player")]
-    [SerializeField] float movementSpeed = 10f;
     [SerializeField] float padding = 1f;
     public int health = 20;
     [SerializeField] Image[] hearts = null;
@@ -17,11 +16,13 @@ public class Player : MonoBehaviour
     [Header("SoundFX")]
     [SerializeField] AudioClip deathSFX = null;
     [SerializeField] AudioClip hitSFX = null;
+    [SerializeField] AudioClip teleportSFX = null;
     [SerializeField] [Range(0, 1)] float SFXVolume = 0.7f;
 
     [Header("VFX")]
     [SerializeField] GameObject deathVFX = null;
     [SerializeField] GameObject hitVFX = null;
+    [SerializeField] GameObject teleportVFX = null;
 
     [Header("Projectile")]
     [SerializeField] GameObject laserPrefab = null;
@@ -37,6 +38,7 @@ public class Player : MonoBehaviour
 
     //state
     Coroutine firingCoroutine;
+    Coroutine movingCoroutine;
 
     float xMin;
     float xMax;
@@ -171,6 +173,21 @@ public class Player : MonoBehaviour
         AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, SFXVolume);
     }
 
+    private void Move()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            GameObject teleportSwish = Instantiate(teleportVFX, transform.position, Quaternion.identity);
+            Destroy(teleportSwish, 0.4f);
+            AudioSource.PlayClipAtPoint(teleportSFX, Camera.main.transform.position, SFXVolume);
+            movingCoroutine = StartCoroutine(PlayerMovement());
+        }
+        if (Input.GetButtonUp("Fire1"))
+        {
+            StopCoroutine(movingCoroutine);
+        }
+    }
     private void Fire()
     {
         if (Input.GetButtonDown("Fire1"))
@@ -193,6 +210,25 @@ public class Player : MonoBehaviour
             yield return new WaitForSeconds(projectileFiringPeriod);
         }
     }
+    IEnumerator PlayerMovement()
+    {
+        while (true)
+        {
+            Vector2 playerPos = new Vector2(transform.position.x, transform.position.y);
+            Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            playerPos.x = Mathf.Clamp(cursorPos.x, xMin, xMax);
+            playerPos.y = Mathf.Clamp(cursorPos.y, yMin, yMax);
+            transform.position = playerPos;
+            yield return new WaitForSeconds(0.01f);
+        }
+        /*
+        var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed;
+        var deltaY = Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed;
+
+        var newXPos = Mathf.Clamp(transform.position.x + deltaX, xMin, xMax);
+        var newYPos = Mathf.Clamp(transform.position.y + deltaY, yMin, yMax);
+        transform.position = new Vector2(newXPos, newYPos);*/
+    }
 
     private void SetUpMoveBoundaries()
     {
@@ -201,15 +237,5 @@ public class Player : MonoBehaviour
         xMax = gameCamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - padding;
         yMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + padding;
         yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding;
-    }
-
-    private void Move()
-    {
-        var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed;
-        var deltaY = Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed;
-
-        var newXPos = Mathf.Clamp(transform.position.x + deltaX, xMin, xMax);
-        var newYPos = Mathf.Clamp(transform.position.y + deltaY, yMin, yMax);
-        transform.position = new Vector2(newXPos, newYPos);
     }
 }
