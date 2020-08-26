@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -4407265755955207942}
   - component: {fileID: 4416764043239587023}
   m_Layer: 9
-  m_Name: Bron
+  m_Name: xBron
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,15 +110,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d0f93d95076c274ebf55070a58eb93a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10000
+  health: 4000
   scoreValue: 6500
   minTimeBetweenShots: 0.2
   maxTimeBetweenShots: 3
   deathVFX: {fileID: 6488125967927212121, guid: 839a5c83ebf4d5944ab9d334250e6117,
     type: 3}
+  hitVFX: {fileID: 5522765895585291727, guid: 8ae0924accefc6045a4505531edab8ff, type: 3}
   durationOfExplosion: 1
   deathSFX: {fileID: 8300000, guid: 8936014ef6358d844819c4735e1a9f04, type: 3}
-  deathSFXVolume: 0.5
+  hitSFX: {fileID: 8300000, guid: ee7fb3bb106637d4d846e1835e93af9f, type: 3}
+  SFXVolume: 0.7
   projectile: {fileID: 5451174568990493901, guid: 4b826674e22dfb34b89a4aca05aeef50,
     type: 3}
   projectileSpeed: 4

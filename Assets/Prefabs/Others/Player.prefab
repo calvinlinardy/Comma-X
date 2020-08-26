@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 174490693}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,23 +97,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 8
   padding: 0.45
-  health: 5
-  deathVFX: {fileID: 6488125967927212121, guid: 839a5c83ebf4d5944ab9d334250e6117,
-    type: 3}
-  deathSFX: {fileID: 8300000, guid: 2bb91fac8b7f18941853e7e5664258b1, type: 3}
-  deathSFXVolume: 0.7
+  health: 1
   hearts:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  hitVFX: {fileID: 5522765895585291727, guid: 8ae0924accefc6045a4505531edab8ff, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  deathSFX: {fileID: 8300000, guid: 2bb91fac8b7f18941853e7e5664258b1, type: 3}
   hitSFX: {fileID: 8300000, guid: f489a344de89fcd429b4c85ba9ae8440, type: 3}
+  SFXVolume: 0.7
+  deathVFX: {fileID: 6488125967927212121, guid: 839a5c83ebf4d5944ab9d334250e6117,
+    type: 3}
+  hitVFX: {fileID: 5522765895585291727, guid: 8ae0924accefc6045a4505531edab8ff, type: 3}
   laserPrefab: {fileID: 4210469647485011511, guid: 0d1f8ab7ef5a7904ca07abe988b787f4,
     type: 3}
   projectileSpeed: 20
-  projectileFiringPeriod: 0.05
+  projectileFiringPeriod: 0.2
   shootSFX: {fileID: 8300000, guid: de8a0fafa66a5af479d66ae0a7a40579, type: 3}
   shootSFXVolume: 0.073
 --- !u!60 &174490693

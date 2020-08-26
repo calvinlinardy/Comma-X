@@ -11,23 +11,29 @@ public class Player : MonoBehaviour
     [Header("Player")]
     [SerializeField] float movementSpeed = 10f;
     [SerializeField] float padding = 1f;
-    [SerializeField] int health = 5;
-    [SerializeField] GameObject deathVFX = null;
-    [SerializeField] AudioClip deathSFX = null;
-    [SerializeField] [Range(0, 1)] float deathSFXVolume = 0.7f;
+    public int health = 20;
     [SerializeField] Image[] hearts = null;
-    [SerializeField] GameObject hitVFX = null;
+
+    [Header("SoundFX")]
+    [SerializeField] AudioClip deathSFX = null;
     [SerializeField] AudioClip hitSFX = null;
+    [SerializeField] [Range(0, 1)] float SFXVolume = 0.7f;
+
+    [Header("VFX")]
+    [SerializeField] GameObject deathVFX = null;
+    [SerializeField] GameObject hitVFX = null;
 
     [Header("Projectile")]
     [SerializeField] GameObject laserPrefab = null;
     [SerializeField] float projectileSpeed = 20f;
-    [SerializeField] float projectileFiringPeriod = 0.1f;
+    public float projectileFiringPeriod = 0.1f;
     [SerializeField] AudioClip shootSFX = null;
     [SerializeField] [Range(0, 1)] float shootSFXVolume = 0.25f;
 
     //cached reference
     Level level;
+    PowerUpSpawner powerUpSpawner;
+    GameSession gameSession;
 
     //state
     Coroutine firingCoroutine;
@@ -39,8 +45,13 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        gameSession = FindObjectOfType<GameSession>();
+        powerUpSpawner = FindObjectOfType<PowerUpSpawner>();
         level = FindObjectOfType<Level>();
         SetUpMoveBoundaries();
+        InvokeRepeating("SpawnMeds", 0.1f, 6f);
+        InvokeRepeating("SpawnPlane", 0.1f, 2f);
+        InvokeRepeating("SpawnBigMeds", 0.1f, 15f);
     }
 
     void Update()
@@ -48,13 +59,29 @@ public class Player : MonoBehaviour
         Move();
         Fire();
         HeartsMinus();
-        HealthUp();
     }
 
-    private void HealthUp()
+    private void SpawnMeds()
     {
-        var bonus = FindObjectOfType<GameSession>().GetHealthBonus();
-        health += bonus;
+        if (health < 20)
+        {
+            powerUpSpawner.Meds();
+        }
+    }
+    private void SpawnPlane()
+    {
+        if (gameSession.GetScore() >= 0)
+        {
+            powerUpSpawner.Plane();
+        }
+    }
+
+    private void SpawnBigMeds()
+    {
+        if (health < 15)
+        {
+            powerUpSpawner.BigMeds();
+        }
     }
 
     private void HeartsMinus()
@@ -72,16 +99,52 @@ public class Player : MonoBehaviour
         }
     }
 
+    IEnumerator FiringPeriodBoost()
+    {
+        projectileFiringPeriod = 0.05f;
+        yield return new WaitForSeconds(3f);
+        projectileFiringPeriod = 0.2f;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
+        if (other.tag == "Meds")
+        {
+            if (health < 19)
+            {
+                health += 2;
+            }
+            else
+            {
+                health += 1;
+            }
+        }
+        if (other.tag == "BigMeds")
+        {
+            if (health <= 10)
+            {
+                health += 10;
+            }
+            else
+            {
+                health = 20;
+            }
+        }
+        if (other.tag == "Plane")
+        {
+            StartCoroutine(FiringPeriodBoost());
+        }
         if (!damageDealer)
         {
             return;
         }
-        GameObject explosion = Instantiate(hitVFX, transform.position, transform.rotation);
-        Destroy(explosion, 0.1f);
-        AudioSource.PlayClipAtPoint(hitSFX, Camera.main.transform.position, deathSFXVolume);
+        if (health > 1)
+        {
+            GameObject hits = Instantiate(hitVFX, transform.position, transform.rotation);
+            Destroy(hits, 0.1f);
+            AudioSource.PlayClipAtPoint(hitSFX, Camera.main.transform.position, SFXVolume);
+        }
         ProcessHit(damageDealer);
     }
 
@@ -105,7 +168,7 @@ public class Player : MonoBehaviour
         Destroy(gameObject);
         GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
         Destroy(explosion, 0.58f);
-        AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, deathSFXVolume);
+        AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, SFXVolume);
     }
 
     private void Fire()

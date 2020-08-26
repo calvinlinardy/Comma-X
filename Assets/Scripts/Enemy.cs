@@ -17,9 +17,11 @@ public class Enemy : MonoBehaviour
 
     [Header("Sound FX")]
     [SerializeField] GameObject deathVFX = null;
+    [SerializeField] GameObject hitVFX = null;
     [SerializeField] float durationOfExplosion = 1f;
     [SerializeField] AudioClip deathSFX = null;
-    [SerializeField] [Range(0, 1)] float deathSFXVolume = 0.7f;
+    [SerializeField] AudioClip hitSFX = null;
+    [SerializeField] [Range(0, 1)] float SFXVolume = 0.7f;
 
     [Header("Enemy Projectile")]
     [SerializeField] GameObject projectile = null;
@@ -59,6 +61,12 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
+        if (health > 1)
+        {
+            GameObject hits = Instantiate(hitVFX, transform.position, transform.rotation);
+            Destroy(hits, 0.1f);
+            AudioSource.PlayClipAtPoint(hitSFX, Camera.main.transform.position, SFXVolume);
+        }
         if (!damageDealer)
         {
             return;
@@ -82,6 +90,6 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
         GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
         Destroy(explosion, durationOfExplosion);
-        AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, deathSFXVolume);
+        AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, SFXVolume);
     }
 }

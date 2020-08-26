@@ -116,9 +116,11 @@ MonoBehaviour:
   maxTimeBetweenShots: 3
   deathVFX: {fileID: 2815568366689456291, guid: c91238521ee726b479d5ce738dbbd4f5,
     type: 3}
+  hitVFX: {fileID: 5522765895585291727, guid: 8ae0924accefc6045a4505531edab8ff, type: 3}
   durationOfExplosion: 1
   deathSFX: {fileID: 8300000, guid: addccbb4a0f05704d8609a0e751f63bd, type: 3}
-  deathSFXVolume: 0.25
+  hitSFX: {fileID: 8300000, guid: ee7fb3bb106637d4d846e1835e93af9f, type: 3}
+  SFXVolume: 0.7
   projectile: {fileID: 5451174568990493901, guid: da525400019d03c4dbf661476d3c366b,
     type: 3}
   projectileSpeed: 8

@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Meds
+  - Plane
+  - BigMeds
   layers:
   - Default
   - TransparentFX
@@ -17,7 +20,7 @@ TagManager:
   - Enemy
   - Player Projectile
   - Enemy Projectile
-  - 
+  - Power Ups
   - 
   - 
   - 
@@ -43,4 +46,7 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: VFX
+    uniqueID: 2425255275
     locked: 0
