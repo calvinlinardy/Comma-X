@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7475798523707071795}
   - component: {fileID: -3702188531819896331}
   - component: {fileID: 1109216634501767578}
-  - component: {fileID: 2378868750841138045}
+  - component: {fileID: 352477361}
   m_Layer: 12
   m_Name: Big Meds
   m_TagString: BigMeds
@@ -137,7 +137,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &2378868750841138045
+--- !u!95 &352477361
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -147,7 +147,7 @@ Animator:
   m_GameObject: {fileID: 7475798523707071792}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 59372f45f0eae594f97dcd9c32a8ec1e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 995e4a11d82864246b04ec008e301d60, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
