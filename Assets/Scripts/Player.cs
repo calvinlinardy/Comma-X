@@ -43,11 +43,14 @@ public class Player : MonoBehaviour
     //state
     Coroutine firingCoroutine;
     Coroutine movingCoroutine;
+    Coroutine disappearCoroutine;
 
     float xMin;
     float xMax;
     float yMin;
     float yMax;
+    bool disappearIsRunning = false;
+    bool firingIsRunning = false;
 
     void Start()
     {
@@ -221,7 +224,11 @@ public class Player : MonoBehaviour
             {
                 if (mySprite.enabled == true && myCollider.enabled == true)
                 {
-                    StartCoroutine(Disappear());
+                    disappearCoroutine = StartCoroutine(Disappear());
+                    if (firingIsRunning == true)
+                    {
+                        StopCoroutine(firingCoroutine);
+                    }
                 }
             }
         }
@@ -229,6 +236,7 @@ public class Player : MonoBehaviour
 
     IEnumerator Disappear()
     {
+        disappearIsRunning = true;
         mySprite.enabled = false;
         myCollider.enabled = false;
         GameObject teleportIn = Instantiate(teleportInVFX, transform.position, Quaternion.identity);
@@ -236,7 +244,11 @@ public class Player : MonoBehaviour
         AudioSource.PlayClipAtPoint(teleportInSFX, Camera.main.transform.position, SFXVolume);
         health--;
         yield return new WaitForSeconds(5f);
-        AppearAfterDisappear();
+        if (mySprite.enabled == false && myCollider.enabled == false)
+        {
+            AppearAfterDisappear();
+        }
+        disappearIsRunning = false;
     }
 
     private void AppearAfterDisappear()
@@ -261,6 +273,10 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             firingCoroutine = StartCoroutine(FireContinuously());
+            if (disappearIsRunning == true)
+            {
+                StopCoroutine(disappearCoroutine);
+            }
         }
         if (Input.GetButtonUp("Fire1"))
         {
@@ -272,10 +288,12 @@ public class Player : MonoBehaviour
     {
         while (true)
         {
+            firingIsRunning = true;
             GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity) as GameObject;
             laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
             AudioSource.PlayClipAtPoint(shootSFX, Camera.main.transform.position, shootSFXVolume);
             yield return new WaitForSeconds(projectileFiringPeriod);
+            firingIsRunning = false;
         }
     }
     IEnumerator PlayerMovement()
