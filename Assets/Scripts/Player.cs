@@ -235,7 +235,7 @@ public class Player : MonoBehaviour
         Destroy(teleportIn, 0.4f);
         AudioSource.PlayClipAtPoint(teleportInSFX, Camera.main.transform.position, SFXVolume);
         health--;
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(5f);
         AppearAfterDisappear();
     }
 

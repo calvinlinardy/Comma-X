@@ -1235,6 +1235,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PowerUpSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 6117358699912145505, guid: 1a71fa1a60b352345819fd778e722f66,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6117358699912145507, guid: 1a71fa1a60b352345819fd778e722f66,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1319,11 +1324,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 7fa52125d54bc2b40b43fdf5ff560994, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2382,7 +2387,7 @@ PrefabInstance:
     - target: {fileID: 597640174232389468, guid: d6de114b8c560f44ea8677fd297fe009,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6de114b8c560f44ea8677fd297fe009, type: 3}
@@ -3060,7 +3065,7 @@ PrefabInstance:
     - target: {fileID: 8267381523293281020, guid: 7f35559085d415b4890aa4cba0af1a1c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f35559085d415b4890aa4cba0af1a1c, type: 3}
