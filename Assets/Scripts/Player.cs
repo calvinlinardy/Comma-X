@@ -16,13 +16,15 @@ public class Player : MonoBehaviour
     [Header("SoundFX")]
     [SerializeField] AudioClip deathSFX = null;
     [SerializeField] AudioClip hitSFX = null;
-    [SerializeField] AudioClip teleportSFX = null;
+    [SerializeField] AudioClip teleportOutSFX = null;
+    [SerializeField] AudioClip teleportInSFX = null;
     [SerializeField] [Range(0, 1)] float SFXVolume = 0.7f;
 
     [Header("VFX")]
     [SerializeField] GameObject deathVFX = null;
     [SerializeField] GameObject hitVFX = null;
     [SerializeField] GameObject teleportVFX = null;
+    [SerializeField] GameObject teleportInVFX = null;
 
     [Header("Projectile")]
     [SerializeField] GameObject laserPrefab = null;
@@ -35,6 +37,8 @@ public class Player : MonoBehaviour
     Level level;
     PowerUpSpawner powerUpSpawner;
     GameSession gameSession;
+    SpriteRenderer mySprite;
+    PolygonCollider2D myCollider;
 
     //state
     Coroutine firingCoroutine;
@@ -47,10 +51,22 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        MyCached();
+        SetUpMoveBoundaries();
+        PowerUps();
+    }
+
+    private void MyCached()
+    {
         gameSession = FindObjectOfType<GameSession>();
         powerUpSpawner = FindObjectOfType<PowerUpSpawner>();
         level = FindObjectOfType<Level>();
-        SetUpMoveBoundaries();
+        mySprite = GetComponent<SpriteRenderer>();
+        myCollider = GetComponent<PolygonCollider2D>();
+    }
+
+    private void PowerUps()
+    {
         InvokeRepeating("SpawnMeds", 0.1f, 6f);
         InvokeRepeating("SpawnPlane", 0.1f, 2f);
         InvokeRepeating("SpawnBigMeds", 0.1f, 15f);
@@ -58,6 +74,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        TeleportIn();
         Move();
         Fire();
         HeartsMinus();
@@ -177,15 +194,36 @@ public class Player : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
+            mySprite.enabled = true;
+            myCollider.enabled = true;
             Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            GameObject teleportSwish = Instantiate(teleportVFX, transform.position, Quaternion.identity);
+            GameObject teleportSwish = Instantiate(teleportVFX, cursorPos, Quaternion.identity);
             Destroy(teleportSwish, 0.4f);
-            AudioSource.PlayClipAtPoint(teleportSFX, Camera.main.transform.position, SFXVolume);
+            AudioSource.PlayClipAtPoint(teleportOutSFX, Camera.main.transform.position, SFXVolume);
             movingCoroutine = StartCoroutine(PlayerMovement());
         }
         if (Input.GetButtonUp("Fire1"))
         {
             StopCoroutine(movingCoroutine);
+        }
+    }
+
+    private void TeleportIn()
+    {
+        if (health > 1)
+        {
+            if (Input.GetButtonDown("Fire2"))
+            {
+                if (mySprite.enabled == true && myCollider.enabled == true)
+                {
+                    mySprite.enabled = false;
+                    myCollider.enabled = false;
+                    GameObject teleportIn = Instantiate(teleportInVFX, transform.position, Quaternion.identity);
+                    Destroy(teleportIn, 0.4f);
+                    AudioSource.PlayClipAtPoint(teleportInSFX, Camera.main.transform.position, SFXVolume);
+                    health--;
+                }
+            }
         }
     }
     private void Fire()
