@@ -198,7 +198,7 @@ public class Player : MonoBehaviour
             myCollider.enabled = true;
             Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             GameObject teleportSwish = Instantiate(teleportVFX, cursorPos, Quaternion.identity);
-            Destroy(teleportSwish, 0.4f);
+            Destroy(teleportSwish, 0.25f);
             AudioSource.PlayClipAtPoint(teleportOutSFX, Camera.main.transform.position, SFXVolume);
             movingCoroutine = StartCoroutine(PlayerMovement());
         }
