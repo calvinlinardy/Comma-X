@@ -1292,6 +1292,133 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a71fa1a60b352345819fd778e722f66, type: 3}
+--- !u!1 &1454841161
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1454841163}
+  - component: {fileID: 1454841162}
+  m_Layer: 0
+  m_Name: BGM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1454841162
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454841161}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1454841163
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454841161}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1462963707
 GameObject:
   m_ObjectHideFlags: 0
@@ -2257,167 +2384,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 597640174232389469, guid: d6de114b8c560f44ea8677fd297fe009,
-        type: 3}
-      propertyPath: waveConfigs.Array.size
-      value: 31
-      objectReference: {fileID: 0}
-    - target: {fileID: 597640174232389469, guid: d6de114b8c560f44ea8677fd297fe009,
-        type: 3}
-      propertyPath: waveConfigs.Array.data[5]
-      value: 
-      objectReference: {fileID: 11400000, guid: 4cfdc5d118a9fe4428d32e66692a95bb,
-        type: 2}
-    - target: {fileID: 597640174232389469, guid: d6de114b8c560f44ea8677fd297fe009,
-        type: 3}
-      propertyPath: waveConfigs.Array.data[6]
-      value: 
-      objectReference: {fileID: 11400000, guid: 7e67385681900ac48880fbc6b5fb4219,
-        type: 2}
-    - target: {fileID: 597640174232389469, guid: d6de114b8c560f44ea8677fd297fe009,
-        type: 3}
-      propertyPath: waveConfigs.Array.data[7]
-      value: 
-      objectReference: {fileID: 11400000, guid: 458777c829dedfe4ca29de299f08c9e2,
-        type: 2}
-    - target: {fileID: 597640174232389469, guid: d6de114b8c560f44ea8677fd297fe009,
-        type: 3}
-      propertyPath: waveConfigs.Array.data[8]
-      value: 
-      objectReference: {fileID: 11400000, guid: b6e1282f011630e49a3680cd562be21e,
-        type: 2}
-    - target: {fileID: 597640174232389469, guid: d6de114b8c560f44ea8677fd297fe009,
-        type: 3}
-      propertyPath: waveConfigs.Array.data[9]
-      value: 
-      objectReference: {fileID: 11400000, guid: 8c75e0d2b0d62394e907ce4cdc35f4b4,
-        type: 2}
-    - target: {fileID: 597640174232389469, guid: d6de114b8c560f44ea8677fd297fe009,
-        type: 3}
-      propertyPath: waveConfigs.Array.data[10]
-      value: 
-      objectReference: {fileID: 11400000, guid: adbb71e4abd2c0d4f972b084ce4c4b6f,
-        type: 2}
-    - target: {fileID: 597640174232389469, guid: d6de114b8c560f44ea8677fd297fe009,
-        type: 3}
-      propertyPath: waveConfigs.Array.data[11]
-      value: 
-      objectReference: {fileID: 11400000, guid: b01662bed7339c84d88ffaa7e9dc8a79,
-        type: 2}
-    - target: {fileID: 597640174232389469, guid: d6de114b8c560f44ea8677fd297fe009,
-        type: 3}
-      propertyPath: waveConfigs.Array.data[12]
-      value: 
-      objectReference: {fileID: 11400000, guid: 52a04da4e0512a5438f74c31c78881da,
-        type: 2}
-    - target: {fileID: 597640174232389469, guid: d6de114b8c560f44ea8677fd297fe009,
-        type: 3}
-      propertyPath: waveConfigs.Array.data[13]
-      value: 
-      objectReference: {fileID: 11400000, guid: 88af2b9e650e1984b90a1dec583e3be2,
-        type: 2}
-    - target: {fileID: 597640174232389469, guid: d6de114b8c560f44ea8677fd297fe009,
-        type: 3}
-      propertyPath: waveConfigs.Array.data[14]
-      value: 
-      objectReference: {fileID: 11400000, guid: 470767898a933374d993a10547c6e271,
-        type: 2}
-    - target: {fileID: 597640174232389469, guid: d6de114b8c560f44ea8677fd297fe009,
-        type: 3}
-      propertyPath: waveConfigs.Array.data[15]
-      value: 
-      objectReference: {fileID: 11400000, guid: 8f7a48fbe0fe56940b47b0afff6c30a7,
-        type: 2}
-    - target: {fileID: 597640174232389469, guid: d6de114b8c560f44ea8677fd297fe009,
-        type: 3}
-      propertyPath: waveConfigs.Array.data[16]
-      value: 
-      objectReference: {fileID: 11400000, guid: f515c7b3733def84fb775401d011ea06,
-        type: 2}
-    - target: {fileID: 597640174232389469, guid: d6de114b8c560f44ea8677fd297fe009,
-        type: 3}
-      propertyPath: waveConfigs.Array.data[17]
-      value: 
-      objectReference: {fileID: 11400000, guid: 34374c35ebb075d4890a7469a03c9f76,
-        type: 2}
-    - target: {fileID: 597640174232389469, guid: d6de114b8c560f44ea8677fd297fe009,
-        type: 3}
-      propertyPath: waveConfigs.Array.data[18]
-      value: 
-      objectReference: {fileID: 11400000, guid: 6babdf4301452fe4faf472089410c248,
-        type: 2}
-    - target: {fileID: 597640174232389469, guid: d6de114b8c560f44ea8677fd297fe009,
-        type: 3}
-      propertyPath: waveConfigs.Array.data[19]
-      value: 
-      objectReference: {fileID: 11400000, guid: 3aa5a7025583c61418f12cc4634481ac,
-        type: 2}
-    - target: {fileID: 597640174232389469, guid: d6de114b8c560f44ea8677fd297fe009,
-        type: 3}
-      propertyPath: waveConfigs.Array.data[20]
-      value: 
-      objectReference: {fileID: 11400000, guid: 4f4ba8b5137fa3f45bf4efeb4b359492,
-        type: 2}
-    - target: {fileID: 597640174232389469, guid: d6de114b8c560f44ea8677fd297fe009,
-        type: 3}
-      propertyPath: waveConfigs.Array.data[21]
-      value: 
-      objectReference: {fileID: 11400000, guid: a86f403a1ce8c774a8a8b529fd4d60ec,
-        type: 2}
-    - target: {fileID: 597640174232389469, guid: d6de114b8c560f44ea8677fd297fe009,
-        type: 3}
-      propertyPath: waveConfigs.Array.data[22]
-      value: 
-      objectReference: {fileID: 11400000, guid: 3438ffbfcf2bad540a9dbaff26c2781c,
-        type: 2}
-    - target: {fileID: 597640174232389469, guid: d6de114b8c560f44ea8677fd297fe009,
-        type: 3}
-      propertyPath: waveConfigs.Array.data[23]
-      value: 
-      objectReference: {fileID: 11400000, guid: 4e7ba7b89f21e06449b71f06ee770d23,
-        type: 2}
-    - target: {fileID: 597640174232389469, guid: d6de114b8c560f44ea8677fd297fe009,
-        type: 3}
-      propertyPath: waveConfigs.Array.data[24]
-      value: 
-      objectReference: {fileID: 11400000, guid: 2f6fdd2ba2d37c04883403d239337197,
-        type: 2}
-    - target: {fileID: 597640174232389469, guid: d6de114b8c560f44ea8677fd297fe009,
-        type: 3}
-      propertyPath: waveConfigs.Array.data[25]
-      value: 
-      objectReference: {fileID: 11400000, guid: d2e1331ff2238404d94e26cec1a32ff0,
-        type: 2}
-    - target: {fileID: 597640174232389469, guid: d6de114b8c560f44ea8677fd297fe009,
-        type: 3}
-      propertyPath: waveConfigs.Array.data[26]
-      value: 
-      objectReference: {fileID: 11400000, guid: 30e3d07e67b1da54aab37af1ee0d801e,
-        type: 2}
-    - target: {fileID: 597640174232389469, guid: d6de114b8c560f44ea8677fd297fe009,
-        type: 3}
-      propertyPath: waveConfigs.Array.data[27]
-      value: 
-      objectReference: {fileID: 11400000, guid: 5c22d50721d882043a6a7443a4f4177c,
-        type: 2}
-    - target: {fileID: 597640174232389469, guid: d6de114b8c560f44ea8677fd297fe009,
-        type: 3}
-      propertyPath: waveConfigs.Array.data[28]
-      value: 
-      objectReference: {fileID: 11400000, guid: 83a644ff41487a844b3b7bfb7555c995,
-        type: 2}
-    - target: {fileID: 597640174232389469, guid: d6de114b8c560f44ea8677fd297fe009,
-        type: 3}
-      propertyPath: waveConfigs.Array.data[29]
-      value: 
-      objectReference: {fileID: 11400000, guid: 489667d65f1b7c74cbca6b9bc7fb65b4,
-        type: 2}
-    - target: {fileID: 597640174232389469, guid: d6de114b8c560f44ea8677fd297fe009,
-        type: 3}
-      propertyPath: waveConfigs.Array.data[30]
-      value: 
-      objectReference: {fileID: 11400000, guid: 5771fe3b57c052b4baa50f763e519887,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6de114b8c560f44ea8677fd297fe009, type: 3}
 --- !u!1001 &903207669361617607

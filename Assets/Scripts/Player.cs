@@ -194,18 +194,23 @@ public class Player : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            mySprite.enabled = true;
-            myCollider.enabled = true;
-            Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            GameObject teleportSwish = Instantiate(teleportVFX, cursorPos, Quaternion.identity);
-            Destroy(teleportSwish, 0.25f);
-            AudioSource.PlayClipAtPoint(teleportOutSFX, Camera.main.transform.position, SFXVolume);
+            Appear();
             movingCoroutine = StartCoroutine(PlayerMovement());
         }
         if (Input.GetButtonUp("Fire1"))
         {
             StopCoroutine(movingCoroutine);
         }
+    }
+
+    private void Appear()
+    {
+        mySprite.enabled = true;
+        myCollider.enabled = true;
+        Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        GameObject teleportSwish = Instantiate(teleportVFX, cursorPos, Quaternion.identity);
+        Destroy(teleportSwish, 0.4f);
+        AudioSource.PlayClipAtPoint(teleportOutSFX, Camera.main.transform.position, SFXVolume);
     }
 
     private void TeleportIn()
@@ -216,16 +221,41 @@ public class Player : MonoBehaviour
             {
                 if (mySprite.enabled == true && myCollider.enabled == true)
                 {
-                    mySprite.enabled = false;
-                    myCollider.enabled = false;
-                    GameObject teleportIn = Instantiate(teleportInVFX, transform.position, Quaternion.identity);
-                    Destroy(teleportIn, 0.4f);
-                    AudioSource.PlayClipAtPoint(teleportInSFX, Camera.main.transform.position, SFXVolume);
-                    health--;
+                    StartCoroutine(Disappear());
                 }
             }
         }
     }
+
+    IEnumerator Disappear()
+    {
+        mySprite.enabled = false;
+        myCollider.enabled = false;
+        GameObject teleportIn = Instantiate(teleportInVFX, transform.position, Quaternion.identity);
+        Destroy(teleportIn, 0.4f);
+        AudioSource.PlayClipAtPoint(teleportInSFX, Camera.main.transform.position, SFXVolume);
+        health--;
+        yield return new WaitForSeconds(10f);
+        AppearAfterDisappear();
+    }
+
+    private void AppearAfterDisappear()
+    {
+        mySprite.enabled = true;
+        myCollider.enabled = true;
+        if (health > 10)
+        {
+            health -= 10;
+        }
+        else
+        {
+            Die();
+        }
+        GameObject teleportSwish = Instantiate(teleportVFX, transform.position, Quaternion.identity);
+        Destroy(teleportSwish, 0.4f);
+        AudioSource.PlayClipAtPoint(teleportOutSFX, Camera.main.transform.position, SFXVolume);
+    }
+
     private void Fire()
     {
         if (Input.GetButtonDown("Fire1"))
