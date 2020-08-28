@@ -27,6 +27,8 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject teleportInVFX = null;
 
     [Header("Projectile")]
+    [SerializeField] GameObject boostedLaserPrefab = null;
+    [SerializeField] GameObject nonBoostedLaserPrefab = null;
     [SerializeField] GameObject laserPrefab = null;
     [SerializeField] float projectileSpeed = 20f;
     public float projectileFiringPeriod = 0.1f;
@@ -70,9 +72,9 @@ public class Player : MonoBehaviour
 
     private void PowerUps()
     {
-        InvokeRepeating("SpawnMeds", 0.1f, 6f);
-        InvokeRepeating("SpawnPlane", 0.1f, 2f);
-        InvokeRepeating("SpawnBigMeds", 0.1f, 15f);
+        InvokeRepeating("SpawnMeds", 0.1f, UnityEngine.Random.Range(7f, 10f));
+        InvokeRepeating("SpawnPlane", 0.1f, UnityEngine.Random.Range(5f, 18f));
+        InvokeRepeating("SpawnBigMeds", 0.1f, UnityEngine.Random.Range(10f, 16f));
     }
 
     void Update()
@@ -92,7 +94,7 @@ public class Player : MonoBehaviour
     }
     private void SpawnPlane()
     {
-        if (gameSession.GetScore() >= 0)
+        if (gameSession.GetScore() >= 12000)
         {
             powerUpSpawner.Plane();
         }
@@ -124,8 +126,10 @@ public class Player : MonoBehaviour
     IEnumerator FiringPeriodBoost()
     {
         projectileFiringPeriod = 0.05f;
+        laserPrefab = boostedLaserPrefab;
         yield return new WaitForSeconds(3f);
         projectileFiringPeriod = 0.2f;
+        laserPrefab = nonBoostedLaserPrefab;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -243,7 +247,7 @@ public class Player : MonoBehaviour
         Destroy(teleportIn, 0.4f);
         AudioSource.PlayClipAtPoint(teleportInSFX, Camera.main.transform.position, SFXVolume);
         health--;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4f);
         if (mySprite.enabled == false && myCollider.enabled == false)
         {
             AppearAfterDisappear();

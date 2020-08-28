@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   padding: 0.45
-  health: 1
+  health: 20
   hearts:
   - {fileID: 0}
   - {fileID: 0}
@@ -120,19 +120,26 @@ MonoBehaviour:
   - {fileID: 0}
   deathSFX: {fileID: 8300000, guid: 2bb91fac8b7f18941853e7e5664258b1, type: 3}
   hitSFX: {fileID: 8300000, guid: f489a344de89fcd429b4c85ba9ae8440, type: 3}
-  teleportSFX: {fileID: 8300000, guid: a6ae268300b3b1346a9dfdfb8c6e7d4d, type: 3}
-  SFXVolume: 0.7
+  teleportOutSFX: {fileID: 8300000, guid: 0a4df9efd64bbc045a56d5acf8bfd1a0, type: 3}
+  teleportInSFX: {fileID: 8300000, guid: 7dd4451315f349b40993352d9e9ceabc, type: 3}
+  SFXVolume: 0.5
   deathVFX: {fileID: 6488125967927212121, guid: 839a5c83ebf4d5944ab9d334250e6117,
     type: 3}
   hitVFX: {fileID: 5522765895585291727, guid: 8ae0924accefc6045a4505531edab8ff, type: 3}
   teleportVFX: {fileID: 1716352759788521039, guid: 482a8bcbf4d794644a871925b186b85c,
+    type: 3}
+  teleportInVFX: {fileID: 5518322116972184182, guid: 7f8e2eb763cf4bb4cb75811ca01e7f59,
+    type: 3}
+  boostedLaserPrefab: {fileID: 4210469647485011511, guid: 8e27edbc30789fa4aadc03370ed0662d,
+    type: 3}
+  nonBoostedLaserPrefab: {fileID: 4210469647485011511, guid: 0d1f8ab7ef5a7904ca07abe988b787f4,
     type: 3}
   laserPrefab: {fileID: 4210469647485011511, guid: 0d1f8ab7ef5a7904ca07abe988b787f4,
     type: 3}
   projectileSpeed: 20
   projectileFiringPeriod: 0.2
   shootSFX: {fileID: 8300000, guid: de8a0fafa66a5af479d66ae0a7a40579, type: 3}
-  shootSFXVolume: 0.073
+  shootSFXVolume: 0.1
 --- !u!60 &174490693
 PolygonCollider2D:
   m_ObjectHideFlags: 0

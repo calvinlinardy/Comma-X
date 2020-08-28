@@ -29,9 +29,15 @@ public class Enemy : MonoBehaviour
     [SerializeField] AudioClip shootSFX = null;
     [SerializeField] [Range(0, 1)] float shootSFXVolume = 0.25f;
 
+    //cached reference
+    GameSession gameSession;
+    Level level;
+
     // Start is called before the first frame update
     void Start()
     {
+        gameSession = FindObjectOfType<GameSession>();
+        level = FindObjectOfType<Level>();
         shotCounter = UnityEngine.Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
     }
 
@@ -39,6 +45,22 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         CountDownAndShoot();
+        pointReached();
+    }
+
+    private void pointReached()
+    {
+        int currentScore = gameSession.GetScore();
+        int scoreToWin = level.GetScoreToWin();
+        if (currentScore >= scoreToWin)
+        {
+            Destroy(gameObject);
+            GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
+            Destroy(explosion, durationOfExplosion);
+            AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, 0.1f);
+            Destroy(FindObjectOfType<EnemySpawner>().gameObject);
+            level.LoadGameOver();
+        }
     }
 
     private void CountDownAndShoot()
@@ -86,7 +108,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        FindObjectOfType<GameSession>().AddToScore(scoreValue);
+        gameSession.AddToScore(scoreValue);
         Destroy(gameObject);
         GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
         Destroy(explosion, durationOfExplosion);
