@@ -16,6 +16,6 @@ public class ButtonFX : MonoBehaviour
 
     public void ClickSound()
     {
-        myFX.PlayOneShot(clickFX, SFXVolume);
+        AudioSource.PlayClipAtPoint(clickFX, Camera.main.transform.position, 0.25f);
     }
 }
