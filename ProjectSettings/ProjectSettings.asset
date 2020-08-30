@@ -270,6 +270,7 @@ PlayerSettings:
   androidGamepadSupportLevel: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   AndroidValidateAppBundleSize: 1
   AndroidAppBundleSizeToValidate: 150
   m_BuildTargetIcons:
@@ -281,6 +282,8 @@ PlayerSettings:
       m_Height: 128
       m_Kind: 0
 =======
+=======
+>>>>>>> parent of 550b50e... more updates.
 =======
 >>>>>>> parent of 550b50e... more updates.
   resolutionDialogBanner: {fileID: 0}
