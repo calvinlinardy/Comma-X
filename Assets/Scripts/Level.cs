@@ -5,17 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class Level : MonoBehaviour
 {
-    [SerializeField] int scoreToWin = 0;
+
     public void LoadStartMenu()
     {
         SceneManager.LoadScene(0);
+        FindObjectOfType<GameSession>().ResetGame();
     }
-
     public void LoadGameScene()
     {
         SceneManager.LoadScene("Game");
     }
-
     public void RestartGame()
     {
         SceneManager.LoadScene("Game");
@@ -32,16 +31,11 @@ public class Level : MonoBehaviour
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene("Game Over");
     }
-
+    
     public void QuitGame()
     {
         Application.Quit();
         Debug.Log("Quit Game");
-    }
-
-    public int GetScoreToWin()
-    {
-        return scoreToWin;
     }
 
 }

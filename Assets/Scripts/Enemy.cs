@@ -45,22 +45,6 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         CountDownAndShoot();
-        pointReached();
-    }
-
-    private void pointReached()
-    {
-        int currentScore = gameSession.GetScore();
-        int scoreToWin = level.GetScoreToWin();
-        if (currentScore >= scoreToWin)
-        {
-            Destroy(gameObject);
-            GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
-            Destroy(explosion, durationOfExplosion);
-            AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, 0.1f);
-            Destroy(FindObjectOfType<EnemySpawner>().gameObject);
-            level.LoadGameOver();
-        }
     }
 
     private void CountDownAndShoot()

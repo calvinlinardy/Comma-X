@@ -141,13 +141,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 5986658484598675705}
-    characterCount: 5
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 1
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -391,3 +391,4 @@ MonoBehaviour:
   myFX: {fileID: 118481455}
   hoverFX: {fileID: 8300000, guid: 921258982941a4e46a9918e4f2eb3b2e, type: 3}
   clickFX: {fileID: 8300000, guid: 74eb3801970390742aaee3606db11fa0, type: 3}
+  SFXVolume: 0.7
